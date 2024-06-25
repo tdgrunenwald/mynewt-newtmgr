@@ -50,7 +50,7 @@ var errTimeout error = errors.New("Timeout reading from serial connection")
 func NewXportCfg() *XportCfg {
 	return &XportCfg{
 		ReadTimeout: 10 * time.Second,
-		Mtu:         128,
+		Mtu:         1024,
 	}
 }
 
@@ -273,6 +273,7 @@ func (sx *SerialXport) Tx(bytes []byte) error {
 		if written == 0 {
 			sx.txRaw([]byte{6, 9})
 		} else {
+			time.Sleep(1 * time.Millisecond)
 			sx.txRaw([]byte{4, 20})
 		}
 
