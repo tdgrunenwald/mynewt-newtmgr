@@ -1,4 +1,4 @@
-module github.com/tdgrunenwald/mynewt-newtmgr
+module github.com/tdgrunenwald/newtmgr
 
 go 1.12
 
